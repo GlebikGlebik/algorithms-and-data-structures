@@ -19,9 +19,8 @@ with open("input.txt","r") as f:
             a[1] = j
         return a[1]
 
-end = time.perf_counter()
-
 with open("output.txt","w") as w2:
-    w2.write(str(calc_fib(n)) + "\n" + "lead time: " + str(end - start) + " seconds")
+    w2.write(str(calc_fib(n)))
 
-
+end = time.perf_counter()
+print ("Lead Time: " + str(end - start) + " seconds")
