@@ -1,7 +1,6 @@
 import time
-import sys
 
-with open("C:\Gleb\Лабы\Алгосы\Lab-0\input.txt","w") as w:
+with open("input.txt","w") as w:
     n = int(input())
     w.write(str(n))
 
