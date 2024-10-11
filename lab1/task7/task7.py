@@ -1,4 +1,5 @@
 from time import *
+
 with open ("input.txt", "w") as f:
     n = input()
     a = input().split()
@@ -25,7 +26,6 @@ with open ("input.txt", "r") as f:
     a = [float(x) for x in a]
     b = a.copy()
     a = selection_sort(n, a)
-    print(a)
 
 end = perf_counter()
 
