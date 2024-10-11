@@ -20,7 +20,6 @@ with open ("input.txt", "r") as f:
                     p = a[j]
                     a[j] = a[i]
                     a[i] = p
-        print(a)
 
 end = time.perf_counter()
 
