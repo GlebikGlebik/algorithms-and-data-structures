@@ -24,7 +24,7 @@ with open ("input.txt", "r") as f:
 end = time.perf_counter()
 
 for q in range(n - 1):
-    if a[q + 1] < a[q]:
+    if a[q + 1] > a[q]:
         print("error: invalid sort")
 
 with open ("output.txt", "w") as f:
