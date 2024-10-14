@@ -17,7 +17,7 @@ with open ("input.txt", "r") as f:
         n = int(f.readline())
         b = f.readline().split()
         a = [int(x) for x in b]
-        for i in range( n - 1):
+        for i in range(n - 1):
             m = i
             for j in range(i + 1, n):
                 if a[m] > a[j]:
