@@ -1,4 +1,7 @@
 import time
+import tracemalloc
+
+tracemalloc.start()
 
 with open ("input.txt", "w") as f:
     a = input().split()
@@ -31,8 +34,10 @@ with open ("output.txt", "w") as f:
         f.write("\n")
         f.write(", ".join(b))
 
-print(start - end)
-
+print("Время работы: ", end - start, "секунд")
+current, peak = tracemalloc.get_traced_memory()
+print(f"Пиковая память: {peak / 2**20:.2f} MB")
+tracemalloc.stop()
 
 
 

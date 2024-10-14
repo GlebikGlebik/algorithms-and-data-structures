@@ -1,4 +1,8 @@
 import time
+import tracemalloc
+
+tracemalloc.start()
+
 with open ("input.txt", "w") as f:
     n = input()
     a = input().split()
@@ -19,11 +23,17 @@ with open ("input.txt", "r") as f:
 
 end = time.perf_counter()
 
+for q in range(n - 1):
+    if a[q + 1] < a[q]:
+        print("error: invalid sort")
+
 with open ("output.txt", "w") as f:
     f.write(" ".join(a))
 
-print(end - start)
-
+print("Время работы: ", end - start, "секунд")
+current, peak = tracemalloc.get_traced_memory()
+print(f"Пиковая память: {peak / 2**20:.2f} MB")
+tracemalloc.stop()
 
 
 

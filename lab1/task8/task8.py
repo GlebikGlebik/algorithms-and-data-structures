@@ -1,4 +1,7 @@
 from time import *
+import tracemalloc
+
+tracemalloc.start()
 
 with open ("input.txt", "w") as f:
     n = input()
@@ -6,6 +9,8 @@ with open ("input.txt", "w") as f:
     f.write(n)
     f.write("\n")
     f.write(" ".join(a))
+
+start = perf_counter()
 
 with open ("input.txt", "r") as f:
     with open ("output.txt", "w") as g:
@@ -25,10 +30,13 @@ with open ("input.txt", "r") as f:
             a[m], a[i] = a[i], a[m]
         g.write("No more swaps needed.")
 
+end = perf_counter()
 
-#print(a)
-'''
-3 1 4 2 2 
-1 3 4 2 2 
+for q in range(n - 1):
+    if a[q + 1] < a[q]:
+        print("error: invalid sort")
 
-'''
+print("Время работы: ", end - start, "секунд")
+current, peak = tracemalloc.get_traced_memory()
+print(f"Пиковая память: {peak / 2**20:.2f} MB")
+tracemalloc.stop()
