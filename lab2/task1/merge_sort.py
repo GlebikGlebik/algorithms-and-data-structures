@@ -17,7 +17,7 @@ def merge(L, R):
     i, j = 0, 0
     n, m = len(L), len(R)
     while i < n and j < m:
-        if L[i] < R[i]:
+        if L[i] < R[j]:
             res.append(L[i])
             i += 1
         else:
@@ -32,7 +32,7 @@ def merge(L, R):
     return res
 
 def merge_sort(A):
-    if len(A) == 1:
+    if len(A) <= 1:
         return A
     q = len(A) // 2
     left = merge_sort(A[:q])
@@ -44,6 +44,7 @@ with open("input.txt", "r") as f:
     A1 = f.readline().split()
     A = [int(x) for x in A1]
     res = merge_sort(A)
+
 
 with open("output.txt", "w") as f:
     res = [str(x) for x in res]
