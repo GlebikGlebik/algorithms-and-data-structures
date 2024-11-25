@@ -57,3 +57,11 @@ inversions = merge_sort_and_count(arr, 0, n - 1)
 
 with open("output.txt", "w") as f:
     f.write(str(inversions) + "\n")
+
+end = time.perf_counter()
+
+print("Время работы: ", end - start, "секунд")
+current, peak = tracemalloc.get_traced_memory()
+print(f"Пиковая память: {peak / 2**20:.2f} MB")
+tracemalloc.stop()
+
