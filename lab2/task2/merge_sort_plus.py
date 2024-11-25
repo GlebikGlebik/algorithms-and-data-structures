@@ -64,4 +64,13 @@ with open("input.txt", "r") as f:
         res = [str(x) for x in sorted_arr.values()]
         f.write(" ".join(res))
 
+end = time.perf_counter()
+
+print("Время работы: ", end - start, "секунд")
+current, peak = tracemalloc.get_traced_memory()
+print(f"Пиковая память: {peak / 2**20:.2f} MB")
+tracemalloc.stop()
+
+
+
 
