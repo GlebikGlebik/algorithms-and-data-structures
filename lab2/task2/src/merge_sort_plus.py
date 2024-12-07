@@ -3,12 +3,13 @@ import tracemalloc
 
 tracemalloc.start()
 
-with open ("../txtf/input.txt", "w") as f:
+"""with open ("../txtf/input.txt", "w") as f:
     n = input()
     a = input().split()
     f.write(n)
     f.write("\n")
     f.write(" ".join(a))
+"""
 
 start = time.perf_counter()
 

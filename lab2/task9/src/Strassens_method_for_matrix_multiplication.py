@@ -4,6 +4,7 @@ import tracemalloc
 
 tracemalloc.start()
 
+"""
 with open ("../txtf/input.txt", "w") as f:
     n = input()
     a = input().split()
@@ -13,6 +14,7 @@ with open ("../txtf/input.txt", "w") as f:
     f.write(" ".join(a))
     f.write("\n")
     f.write(" ".join(b))
+"""
 
 start = time.perf_counter()
 
@@ -88,6 +90,7 @@ def closest_power_of_two(n):
         return 1
     return 2 ** ceil(log2(n))
 
+"""
 with open("../txtf/input.txt", "r") as f:
     n = int(f.readline())
     a_input = list(map(int, f.readline().split()))
@@ -110,6 +113,7 @@ with open("../txtf/output.txt", "w") as f:
         row = [str(x) for x in row]
         f.write(" ".join(row))
         f.write("\n")
+"""
 
 end = time.perf_counter()
 

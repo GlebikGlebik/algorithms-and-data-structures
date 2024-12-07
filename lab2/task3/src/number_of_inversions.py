@@ -3,14 +3,17 @@ import tracemalloc
 
 tracemalloc.start()
 
+"""
 with open("../txtf/input.txt", "w") as f:
     n = input()
     a = input().split()
     f.write(n)
     f.write("\n")
     f.write(" ".join(a))
+"""
 
 start = time.perf_counter()
+
 
 def merge_and_count(arr, left, mid, right):
     left_part = arr[left:mid + 1]

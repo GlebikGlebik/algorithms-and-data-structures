@@ -3,12 +3,14 @@ import tracemalloc
 
 tracemalloc.start()
 
+"""
 with open ("../txtf/input.txt", "w") as f:
     n = input()
     a = input().split()
     f.write(n)
     f.write("\n")
     f.write(" ".join(a))
+"""
 
 start = time.perf_counter()
 
@@ -52,6 +54,7 @@ with open("../txtf/output.txt", "w") as f:
     f.write(s)
 
 end = time.perf_counter()
+
 
 print("Время работы: ", end - start, "секунд")
 current, peak = tracemalloc.get_traced_memory()

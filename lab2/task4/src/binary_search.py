@@ -3,6 +3,7 @@ import tracemalloc
 
 tracemalloc.start()
 
+"""
 with open ("../txtf/input.txt", "w") as f:
     n = input()
     arr = input().split()
@@ -15,6 +16,7 @@ with open ("../txtf/input.txt", "w") as f:
     f.write(m)
     f.write("\n")
     f.write(" ".join(brr))
+"""
 
 def merge_sort(arr):
     if len(arr) <= 1:
