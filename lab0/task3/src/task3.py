@@ -1,12 +1,12 @@
 import time
 
-with open("input.txt","w") as w:
+with open("../txtf/input.txt", "w") as w:
     n = int(input())
     w.write(str(n))
 
 start = time.perf_counter()
 
-with open("input.txt","r") as f:
+with open("../txtf/input.txt", "r") as f:
     n = f.read()
     n = int(n)
     if 0 <= n <= 10**7:
@@ -26,7 +26,7 @@ with open("input.txt","r") as f:
 
 end = time.perf_counter()
 
-with open("output.txt","w") as w2:
+with open("../txtf/output.txt", "w") as w2:
     if t == True:
         w2.write(str(calc_fib(n)) + "\n" + "lead time: " + str(end - start) + " seconds")
     elif t == False:
