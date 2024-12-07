@@ -3,7 +3,7 @@ import tracemalloc
 
 tracemalloc.start()
 
-with open("input.txt", "w") as f:
+with open("../txtf/input.txt", "w") as f:
     a = input().split()
     n = input().strip()
     f.write(" ".join(a))
@@ -12,7 +12,7 @@ with open("input.txt", "w") as f:
 
 start = time.perf_counter()
 
-with open("input.txt", "r") as f:
+with open("../txtf/input.txt", "r") as f:
     a = f.readline().split()
     n = f.readline().strip()
     k = 0
@@ -24,7 +24,7 @@ with open("input.txt", "r") as f:
 
 end = time.perf_counter()
 
-with open("output.txt", "w") as f:
+with open("../txtf/output.txt", "w") as f:
     if k == 0:
         f.write("-1")
     elif k == 1:

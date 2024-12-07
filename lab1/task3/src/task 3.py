@@ -3,7 +3,7 @@ import tracemalloc
 
 tracemalloc.start()
 
-with open ("input.txt", "w") as f:
+with open ("../txtf/input.txt", "w") as f:
     n = input()
     a = input().split()
     f.write(n)
@@ -12,7 +12,7 @@ with open ("input.txt", "w") as f:
 
 start = time.perf_counter()
 
-with open ("input.txt", "r") as f:
+with open ("../txtf/input.txt", "r") as f:
     n = int(f.readline())
     a = f.readline().split()
     for i in range(1, n, 1):
@@ -27,7 +27,7 @@ for q in range(n - 1):
     if a[q + 1] > a[q]:
         print("error: invalid sort")
 
-with open ("output.txt", "w") as f:
+with open ("../txtf/output.txt", "w") as f:
     f.write(" ".join(a))
 
 print("Время работы: ", end - start, "секунд")

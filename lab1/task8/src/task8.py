@@ -3,7 +3,7 @@ import tracemalloc
 
 tracemalloc.start()
 
-with open ("input.txt", "w") as f:
+with open ("../txtf/input.txt", "w") as f:
     n = input()
     a = input().split()
     f.write(n)
@@ -12,8 +12,8 @@ with open ("input.txt", "w") as f:
 
 start = perf_counter()
 
-with open ("input.txt", "r") as f:
-    with open ("output.txt", "w") as g:
+with open ("../txtf/input.txt", "r") as f:
+    with open ("../txtf/output.txt", "w") as g:
         n = int(f.readline())
         b = f.readline().split()
         a = [int(x) for x in b]
