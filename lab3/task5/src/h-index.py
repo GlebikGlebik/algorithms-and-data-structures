@@ -4,7 +4,7 @@ import tracemalloc
 
 tracemalloc.start()
 
-with open ("input.txt", "w") as f:
+with open ("../txtf/input.txt", "w") as f:
     array_input = input().split(',')
     f.write(" ".join(array_input))
 
@@ -20,11 +20,11 @@ def h_index(array):
         h_indexes.append(count)
     return max(h_indexes) - 1
 
-with open("input.txt", "r") as f:
+with open("../txtf/input.txt", "r") as f:
     array = list(map(int,f.readline().split()))
     res = h_index(array)
 
-with open("output.txt", "w") as f:
+with open("../txtf/output.txt", "w") as f:
     f.write(str(res))
 
 end = time.perf_counter()
