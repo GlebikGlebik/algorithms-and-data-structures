@@ -3,7 +3,7 @@ import tracemalloc
 
 tracemalloc.start()
 
-with open("input.txt", "w") as f:
+with open("../txtf/input.txt", "w") as f:
     n = input()
     a = input().split()
     f.write(n)
@@ -49,13 +49,13 @@ def merge_sort_and_count(arr, left, right):
     return inversions
 
 
-with open("input.txt", "r") as f:
+with open("../txtf/input.txt", "r") as f:
     n = int(f.readline())
     arr = list(map(int, f.readline().split()))
 
 inversions = merge_sort_and_count(arr, 0, n - 1)
 
-with open("output.txt", "w") as f:
+with open("../txtf/output.txt", "w") as f:
     f.write(str(inversions) + "\n")
 
 end = time.perf_counter()

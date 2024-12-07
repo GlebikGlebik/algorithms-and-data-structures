@@ -3,7 +3,7 @@ import tracemalloc
 
 tracemalloc.start()
 
-with open ("input.txt", "w") as f:
+with open ("../txtf/input.txt", "w") as f:
     n = input()
     arr = input().split()
     m = input()
@@ -59,7 +59,7 @@ def binary_search(arr_dict_sorted, n, b):
         res = binary_search(dict(list(arr_dict_sorted.items())[mid + 1:]), len(dict(list(arr_dict_sorted.items())[mid + 1:])), b)
     return res
 
-with open("input.txt", "r") as f:
+with open("../txtf/input.txt", "r") as f:
     n = int(f.readline())
     a1 = f.readline().split()
     arr = [int(x) for x in a1]

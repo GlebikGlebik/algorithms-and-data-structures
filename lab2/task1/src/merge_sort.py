@@ -3,7 +3,7 @@ import tracemalloc
 
 tracemalloc.start()
 
-with open ("input.txt", "w") as f:
+with open ("../txtf/input.txt", "w") as f:
     n = input()
     a = input().split()
     f.write(n)
@@ -39,14 +39,14 @@ def merge_sort(A):
     right = merge_sort(A[q:])
     return merge(left, right)
 
-with open("input.txt", "r") as f:
+with open("../txtf/input.txt", "r") as f:
     n = int(f.readline())
     A1 = f.readline().split()
     A = [int(x) for x in A1]
     res = merge_sort(A)
 
 
-with open("output.txt", "w") as f:
+with open("../txtf/output.txt", "w") as f:
     res = [str(x) for x in res]
     s = " ".join(res)
     f.write(s)
