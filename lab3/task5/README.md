@@ -79,6 +79,6 @@ tracemalloc.stop()
 
    - Перейдите в директорию Task5/tests.
    - Выполните команду:
-          python -m unittest h_index.py
+          python -m unittest test_h_index.py
      
    - Все тесты должны завершиться успешно, подтверждая корректность работы алгоритма.
