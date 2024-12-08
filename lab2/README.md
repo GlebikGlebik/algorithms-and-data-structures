@@ -19,6 +19,7 @@ Lab-2/
 |   |   |-- __init__.py
 |   |   |-- input.txt
 |   |   |-- output.txt
+|   |-- README.md
 |
 |-- Task-2/
 |   |-- src/
@@ -31,6 +32,7 @@ Lab-2/
 |   |   |-- __init__.py
 |   |   |-- input.txt
 |   |   |-- output.txt
+|   |-- README.md
 |
 |-- Task-3/
 |   |-- src/
@@ -43,6 +45,7 @@ Lab-2/
 |   |   |-- __init__.py
 |   |   |-- input.txt
 |   |   |-- output.txt
+|   |-- README.md
 |
 |-- Task-4/
 |   |-- src/
@@ -55,6 +58,7 @@ Lab-2/
 |   |   |-- __init__.py
 |   |   |-- input.txt
 |   |   |-- output.txt
+|   |-- README.md
 |
 |-- Task-5/
 |   |-- src/
@@ -67,6 +71,8 @@ Lab-2/
 |   |   |-- __init__.py
 |   |   |-- input.txt
 |   |   |-- output.txt
+|   |-- README.md
+|-- README.md
 ```
 
 ## Задачи
