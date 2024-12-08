@@ -78,7 +78,6 @@ with open("../txtf/input.txt", "r") as f:
         res.append(binary_search(arr_dict_sorted, n, b))
         if res[-1] == None:
             res[-1] = -1
-    print(res)
 
 with open("../txtf/output.txt", "w") as f:
     res = [str(i) for i in res]
