@@ -4,6 +4,7 @@ import math
 
 tracemalloc.start()
 
+"""
 with open ("../txtf/input.txt", "w") as f:
     n_input, k_input = map(str, input().split())
     f.write(n_input + ' ' + k_input)
@@ -12,6 +13,7 @@ with open ("../txtf/input.txt", "w") as f:
         array_input = input().split()
         f.write(" ".join(array_input))
         f.write("\n")
+"""
 
 start = time.perf_counter()
 
@@ -28,7 +30,7 @@ def nearest_points_to_the_origin(arr_of_points, n, k):
         del arr_of_points[point]
     return closest_points
 
-
+"""
 with open("../txtf/input.txt", "r") as f:
     n, k = map(int, f.readline(3).split())
     arr_of_points = []
@@ -42,6 +44,7 @@ with open("../txtf/output.txt", "w") as f:
     f.write('closest points to the origin:')
     f.write('\n')
     f.write(str(res))
+"""
 
 end = time.perf_counter()
 

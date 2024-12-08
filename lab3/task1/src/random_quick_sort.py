@@ -4,12 +4,14 @@ import tracemalloc
 
 tracemalloc.start()
 
+"""
 with open ("../txtf/input.txt", "w") as f:
     n_input = input()
     array_input = input().split()
     f.write(n_input)
     f.write("\n")
     f.write(" ".join(array_input))
+"""
 
 start = time.perf_counter()
 
@@ -25,6 +27,7 @@ def quick_sort(array):
 
     return quick_sort(left) + middle + quick_sort(right)
 
+"""
 with open("../txtf/input.txt", "r") as f:
     n = int(f.readline())
     array = f.readline().split()
@@ -35,6 +38,7 @@ with open("../txtf/output.txt", "w") as f:
     res = [str(x) for x in res]
     s = " ".join(res)
     f.write(s)
+"""
 
 end = time.perf_counter()
 

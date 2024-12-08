@@ -4,6 +4,7 @@ import math
 
 tracemalloc.start()
 
+"""
 with open ("../txtf/input.txt", "w") as f:
     n_input = input()
     f.write(n_input)
@@ -12,6 +13,7 @@ with open ("../txtf/input.txt", "w") as f:
         array_input = input().split()
         f.write(" ".join(array_input))
         f.write("\n")
+"""
 
 start = time.perf_counter()
 
@@ -28,6 +30,7 @@ def nearest_point(arr_of_points, n):
     indexes = (index1, index2)
     return indexes, min_dist
 
+"""
 with open("../txtf/input.txt", "r") as f:
     n = int(f.readline())
     arr_of_points = {}
@@ -46,6 +49,7 @@ with open("../txtf/output.txt", "w") as f:
     f.write('distance between points: ')
     f.write('\n')
     f.write(str(min_dist))
+"""
 
 end = time.perf_counter()
 
