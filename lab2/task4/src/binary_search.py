@@ -79,3 +79,7 @@ with open("../txtf/input.txt", "r") as f:
         if res[-1] == None:
             res[-1] = -1
     print(res)
+
+with open("../txtf/output.txt", "w") as f:
+    res = [str(i) for i in res]
+    f.write(" ".join(res))
