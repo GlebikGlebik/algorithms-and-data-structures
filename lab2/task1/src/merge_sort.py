@@ -55,11 +55,12 @@ with open("../txtf/output.txt", "w") as f:
 
 end = time.perf_counter()
 
-
 print("Время работы: ", end - start, "секунд")
 current, peak = tracemalloc.get_traced_memory()
 print(f"Пиковая память: {peak / 2**20:.2f} MB")
 tracemalloc.stop()
+
+
 
 
 
