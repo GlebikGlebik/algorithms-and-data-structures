@@ -1,5 +1,4 @@
 import unittest
-from lab3.task5.src.h_index import *
 
 
 class TestHIndex(unittest.TestCase):

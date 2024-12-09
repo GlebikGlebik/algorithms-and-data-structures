@@ -1,5 +1,4 @@
 import unittest
-from lab2.task9.src.Strassens_method_for_matrix_multiplication import *
 
 
 class TestMatrixOperations(unittest.TestCase):

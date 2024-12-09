@@ -1,5 +1,5 @@
 import unittest
-from lab3.task1.src.random_quick_sort import *
+
 
 class TestQuickSort(unittest.TestCase):
 

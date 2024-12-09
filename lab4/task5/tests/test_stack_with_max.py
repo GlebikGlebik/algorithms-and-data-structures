@@ -1,7 +1,4 @@
 import unittest
-from lab4.task5.src.stack_with_max import *
-
-import unittest
 
 
 class TestStack(unittest.TestCase):

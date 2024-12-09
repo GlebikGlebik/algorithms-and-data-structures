@@ -1,7 +1,4 @@
 import unittest
-from lab4.task3.src.bracket_sequence_1 import *
-
-import unittest
 
 class TesttestBracketSequence1(unittest.TestCase):
     def setUp(self):

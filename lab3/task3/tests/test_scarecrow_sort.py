@@ -1,5 +1,4 @@
 import unittest
-from lab3.task3.src.scarecrow_sort import *
 
 
 class TestScarecrowSort(unittest.TestCase):

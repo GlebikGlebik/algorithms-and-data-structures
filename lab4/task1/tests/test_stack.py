@@ -1,7 +1,4 @@
 import unittest
-from lab4.task1.src.stack import *
-
-import unittest
 
 
 class TestStack(unittest.TestCase):

@@ -1,7 +1,4 @@
 import unittest
-from lab4.task7.src.max_in_moving_sequence import *
-
-import unittest
 
 
 class TestQueue(unittest.TestCase):

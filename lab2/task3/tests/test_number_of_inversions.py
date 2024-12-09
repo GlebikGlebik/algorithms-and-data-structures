@@ -1,5 +1,5 @@
 import unittest
-from lab2.task3.src.number_of_inversions import *
+
 
 class TestMergeSort(unittest.TestCase):
 

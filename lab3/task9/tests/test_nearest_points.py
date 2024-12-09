@@ -1,5 +1,5 @@
 import unittest
-from lab3.task9.src.nearest_points import *
+
 
 class TestNearestPoint(unittest.TestCase):
 
