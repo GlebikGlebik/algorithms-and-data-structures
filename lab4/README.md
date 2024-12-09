@@ -17,65 +17,6 @@
 ### Задача 7: 
 Реализовать алгоритм нахождения максимального числа в "плавающем" окне списка.
 
-## Структура проекта
-
-```
-Lab4/
-|-- Task1/
-|   |-- src/
-|   |   |-- __init__.py
-|   |   |-- stack.py
-|   |-- tests/
-|   |   |-- __init__.py
-|   |   |-- test_stack.py
-|   |-- txtf/
-|   |   |-- __init__.py
-|   |   |-- input.txt
-|   |   |-- output.txt
-|   |-- README.md
-|
-|
-|-- Task3/
-|   |-- src/
-|   |   |-- __init__.pyt
-|   |   |-- bracket_sequence_1.py
-|   |-- tests/
-|   |   |-- __init__.py
-|   |   |-- test_bracket_sequence_1.py
-|   |-- txtf/
-|   |   |-- __init__.py
-|   |   |-- input.txt
-|   |   |-- output.txt
-|   |-- README.md
-|
-|-- Task5/
-|   |-- src/
-|   |   |-- __init__.py
-|   |   |-- stack_with_max.py
-|   |-- tests/
-|   |   |-- __init__.py
-|   |   |-- test_stack_with_max.py
-|   |-- txtf/
-|   |   |-- __init__.py
-|   |   |-- input.txt
-|   |   |-- output.txt
-|   |-- README.md
-|
-|-- Task7/
-|   |-- src/
-|   |   |-- __init__.py
-|   |   |-- max_in_moving_sequence.py
-|   |-- tests/
-|   |   |-- __init__.py
-|   |   |-- test_max_in_moving_sequence.py
-|   |-- txtf/
-|   |   |-- __init__.py
-|   |   |-- input.txt
-|   |   |-- output.txt
-|   |-- README.md
-|-- README.md
-```
-
 ## Запуск проектов
 
 Каждая из задач расположена в своей отдельной директории. В каждой директории имеются исходные файлы, входные данные (`input.txt`), выходные данные (`output.txt`) и тесты для проверки правильности работы алгоритмов.

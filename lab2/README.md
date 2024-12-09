@@ -1,79 +1,8 @@
 # Лабораторная работа  №2: Алгоритмы сортировки и поиска
 
 ## Описание
-
 Данная лабораторная работа включает реализацию и тестирование нескольких алгоритмов сортировки и поиска, используемых в информатике для решения различных задач. Основные цели работы заключаются в изучении и применении методов сортировки, поиска, а также в применении подхода "разделяй и властвуй" для эффективного решения задач.
 
-## Структура проекта
-
-```
-Lab-2/
-|-- Task-1/
-|   |-- src/
-|   |   |-- __init__.py
-|   |   |-- merge_sort.py
-|   |-- tests/
-|   |   |-- __init__.py
-|   |   |-- test_merge_sort.py
-|   |-- txtf/
-|   |   |-- __init__.py
-|   |   |-- input.txt
-|   |   |-- output.txt
-|   |-- README.md
-|
-|-- Task-2/
-|   |-- src/
-|   |   |-- __init__.py
-|   |   |-- merge_sort_plus.py
-|   |-- tests/
-|   |   |-- __init__.py
-|   |   |-- test_merge_sort_plus.py
-|   |-- txtf/
-|   |   |-- __init__.py
-|   |   |-- input.txt
-|   |   |-- output.txt
-|   |-- README.md
-|
-|-- Task-3/
-|   |-- src/
-|   |   |-- __init__.pyt
-|   |   |-- number_of_inversions.py
-|   |-- tests/
-|   |   |-- __init__.py
-|   |   |-- test_number_of_inversions.py
-|   |-- txtf/
-|   |   |-- __init__.py
-|   |   |-- input.txt
-|   |   |-- output.txt
-|   |-- README.md
-|
-|-- Task-4/
-|   |-- src/
-|   |   |-- __init__.py
-|   |   |-- binary_search.py
-|   |-- tests/
-|   |   |-- __init__.py
-|   |   |-- test_binary_search.py
-|   |-- txtf/
-|   |   |-- __init__.py
-|   |   |-- input.txt
-|   |   |-- output.txt
-|   |-- README.md
-|
-|-- Task-5/
-|   |-- src/
-|   |   |-- __init__.py
-|   |   |-- Strassens_method_for_matrix_multiplication.py
-|   |-- tests/
-|   |   |-- __init__.py
-|   |   |-- test_Strassens_method_for_matrix_multiplication.py
-|   |-- txtf/
-|   |   |-- __init__.py
-|   |   |-- input.txt
-|   |   |-- output.txt
-|   |-- README.md
-|-- README.md
-```
 
 ## Задачи
 
