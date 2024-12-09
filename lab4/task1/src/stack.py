@@ -27,3 +27,4 @@ with open("../txtf/input.txt", "r") as f:
                stc.push(arr[1])
            elif arr[0] == '-':
                g.write(str(stc.pop()) + "\n")
+
