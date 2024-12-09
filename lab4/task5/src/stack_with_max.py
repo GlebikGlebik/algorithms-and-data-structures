@@ -23,6 +23,7 @@ class Stack:
        return removed
 
    def push(self, item):
+       """Если мы добавили в стек 1‑й элемент, он становится максимумом, если нет, то новый элемент сравнивается с текущим максимумом"""
        self.stack.append(item)
        if len(self.stack) == 1 or item > self.max:
            self.max = item
