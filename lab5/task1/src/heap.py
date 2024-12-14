@@ -1,6 +1,6 @@
 import sys
 import os
-from lab5.utils import read_input, write_output, decorate
+from lab1.utils import read_input, write_output, decorate
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
