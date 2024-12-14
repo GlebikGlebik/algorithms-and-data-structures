@@ -1,7 +1,6 @@
 import sys
 import os
 
-from lab1.task1.src.task1 import input_file
 from lab1.utils import read_input, write_output, decorate
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
