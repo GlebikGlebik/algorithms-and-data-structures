@@ -1,18 +1,8 @@
-import time
-import tracemalloc
+import sys
+import os
+from lab2.utils import read_input, write_output, decorate
 
-tracemalloc.start()
-
-
-with open ("../txtf/input.txt", "w") as f:
-    n = input()
-    a = input().split()
-    f.write(n)
-    f.write("\n")
-    f.write(" ".join(a))
-
-
-start = time.perf_counter()
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 def merge(L, R):
     res = []
@@ -41,24 +31,16 @@ def merge_sort(A):
     right = merge_sort(A[q:])
     return merge(left, right)
 
-with open("../txtf/input.txt", "r") as f:
-    n = int(f.readline())
-    A1 = f.readline().split()
-    A = [int(x) for x in A1]
-    res = merge_sort(A)
+def main():
+    input_file = read_input(task = 1)
+    arr = list(map(int,input_file[1].split()))
+    res = merge_sort(arr)
+    res = [str(i) for i in res]
+    write_output(1, " ".join(res))
 
+if __name__ == '__main__':
+    decorate(task = 1, task_name= 'merge_sort')
 
-with open("../txtf/output.txt", "w") as f:
-    res = [str(x) for x in res]
-    s = " ".join(res)
-    f.write(s)
-
-end = time.perf_counter()
-
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
 
 
 
