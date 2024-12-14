@@ -1,8 +1,6 @@
 import sys
 import os
-
-from lab1.task1.src.task1 import input_file
-from lab5.utils import read_input, write_output, decorate
+from lab1.utils import read_input, write_output, decorate
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
@@ -27,4 +25,4 @@ def main():
         write_output(4, ' '.join(b))
 
 if __name__ == '__main__':
-    decorate(task = 1, task_name= 'heap')
+    decorate(task = 4, task_name= 'task4')
