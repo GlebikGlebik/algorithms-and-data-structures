@@ -1,20 +1,15 @@
-import time
-import tracemalloc
+import sys
+import os
 
-tracemalloc.start()
+from lab1.task1.src.task1 import input_file
+from lab5.utils import read_input, write_output, decorate
 
-with open("../txtf/input.txt", "w") as f:
-    a = input().split()
-    n = input().strip()
-    f.write(" ".join(a))
-    f.write("\n")
-    f.write(n)
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-start = time.perf_counter()
-
-with open("../txtf/input.txt", "r") as f:
-    a = f.readline().split()
-    n = f.readline().strip()
+def main():
+    input_file = read_input(4)
+    a = list(map(str, input_file[0].split()))
+    n = str(input_file[1])
     k = 0
     b = []
     for i in range(len(a)):
@@ -22,19 +17,14 @@ with open("../txtf/input.txt", "r") as f:
             k += 1
             b.append(str(i))
 
-end = time.perf_counter()
-
-with open("../txtf/output.txt", "w") as f:
     if k == 0:
-        f.write("-1")
+        write_output(4, '-1')
     elif k == 1:
-        f.write(b[0])
+        write_output(4, b[0])
     elif k > 1:
-        f.write(str(k))
-        f.write("\n")
-        f.write(", ".join(b))
+        write_output(4, str(k))
+        write_output(4, '\n')
+        write_output(4, ' '.join(b))
 
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
+if __name__ == '__main__':
+    decorate(task = 1, task_name= 'heap')
