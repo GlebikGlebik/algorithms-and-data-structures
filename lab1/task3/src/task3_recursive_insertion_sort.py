@@ -1,50 +1,37 @@
-import time
-from time import perf_counter
-import tracemalloc
+import sys
+import os
 
-tracemalloc.start()
+from lab1.utils import read_input, write_output, decorate
 
-with open ("../txtf/input.txt", "w") as f:
-    n1 = input()
-    a1 = input().split()
-    f.write(n1)
-    f.write("\n")
-    f.write(" ".join(a1))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-start = time.perf_counter()
-
-with open ("../txtf/input.txt", "r") as f:
-    n = int(f.readline())
-    arr = f.readline().split()
-    arr = [int(x) for x in arr]
-
-    def recursive_insertion_sort(n, arr):
-        if n == 1:
-            return arr
-
-        arr = recursive_insertion_sort(n - 1, arr)
-        key = arr[n - 1]
-        j = n - 2
-
-        while j >= 0 and arr[j] > key:
-            arr[j + 1] = arr[j]
-            j -= 1
-
-        arr[j + 1] = key
+def recursive_insertion_sort(n, arr):
+    if n == 1:
         return arr
 
-    a = recursive_insertion_sort(n, arr)
+    arr = recursive_insertion_sort(n - 1, arr)
+    key = arr[n - 1]
+    j = n - 2
+
+    while j >= 0 and arr[j] > key:
+        arr[j + 1] = arr[j]
+        j -= 1
+
+    arr[j + 1] = key
+    return arr
+
+def main():
+    input_file = read_input(task=3)
+    n = int(input_file[0])
+    arr = list(map(int, input_file[1].split()))
+    res = recursive_insertion_sort(n, arr)
+
     for q in range(n - 1):
-        if a[q + 1] < a[q]:
+        if res[q + 1] < res[q]:
             print("error: invalid sort")
-    a = [str(x) for x in a]
 
-end = perf_counter()
+    res = [str(x) for x in res]
+    write_output(3, ' '.join(res))
 
-with open ("../txtf/output.txt", "w") as f:
-   f.write(" ".join(a))
-
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
+if __name__ == '__main__':
+    decorate(task = 3, task_name= 'task3_recursive_insertion_sort')
