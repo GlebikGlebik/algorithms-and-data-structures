@@ -1,21 +1,15 @@
-from time import *
-import tracemalloc
+import sys
+import os
 
-tracemalloc.start()
+from lab1.task1.src.task1 import input_file
+from lab1.utils import read_input, write_output, decorate
 
-with open ("../txtf/input.txt", "w") as f:
-    n = input()
-    a = input().split()
-    f.write(n)
-    f.write("\n")
-    f.write(" ".join(a))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-start = perf_counter()
-
-with open ("../txtf/input.txt", "r") as f:
-    n = int(f.readline())
-    a = f.readline().split()
-    a = [float(x) for x in a]
+def main():
+    input_file = read_input(7)
+    n = int(input_file[0])
+    a = list(map(float, input_file[1].split()))
     b = a.copy()
     for i in range(1, n, 1):
         for j in range(0, i, 1):
@@ -25,15 +19,11 @@ with open ("../txtf/input.txt", "r") as f:
                     a[j] = a[i]
                     a[i] = p
 
-end = perf_counter()
+    for q in range(n - 1):
+        if a[q + 1] < a[q]:
+            print("error: invalid sort")
 
-for q in range(n - 1):
-    if a[q + 1] < a[q]:
-        print("error: invalid sort")
+    write_output(7, f'{str(b.index(a[0]) + 1)} {str(b.index(a[n // 2]) + 1)} {str(b.index(a[-1]) + 1)}')
 
-with open ("../txtf/output.txt", "w") as f:
-    f.write(str(b.index(a[0]) + 1) + " " + str(b.index(a[n // 2]) + 1) + " " + str(b.index(a[-1]) + 1))
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
+if __name__ == '__main__':
+    decorate(task = 7, task_name= 'task7')
