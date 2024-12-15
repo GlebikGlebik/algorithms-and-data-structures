@@ -1,47 +1,24 @@
-from random import *
-import time
-import tracemalloc
+import sys
+import os
 
-tracemalloc.start()
+from lab3.utils import read_input, write_output, decorate
 
-"""
-with open ("../txtf/input.txt", "w") as f:
-    n_input, k_input = input().split()
-    array_input = input().split()
-    f.write(n_input + " " + k_input)
-    f.write("\n")
-    f.write(" ".join(array_input))
-"""
-
-start = time.perf_counter()
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 def scarecrow_sort(n, k, arr):
-    """
-    :param n: Количество матрёшек.
-    :param k: Размах рук (расстояние для обмена).
-    :param arr: Список размеров матрёшек.
-    :return: True, если сортировка возможна, иначе False.
-    :raises ValueError: Если длина массива не равна n.
-    """
-
-    # Создаём список групп, где каждая группа соответствует позиции по модулю k
     groups = [[] for _ in range(k)]
     for index in range(n):
         groups[index % k].append(arr[index])
 
-    # Сортируем каждую группу по неубыванию
     for group in groups:
         group.sort()
 
-    # Сортированный массив для сравнения
     sorted_arr = sorted(arr)
 
-    # Проверяем, можно ли собрать отсортированный массив из отсортированных групп
     for index in range(n):
         group_index = index % k
         element_index = index // k
         if element_index >= len(groups[group_index]):
-            # Это условие обычно не должно возникать, но добавляем для безопасности
             return False
         actual_value = groups[group_index][element_index]
         expected_value = sorted_arr[index]
@@ -49,22 +26,17 @@ def scarecrow_sort(n, k, arr):
             return False
     return True
 
-"""
-with open("../txtf/input.txt", "r") as f:
-    n, k = map(int, f.readline().split())
-    arr = list(map(int, f.readline().split()))
+
+def main():
+    input_file = read_input(3)
+    n, k = list(map(int, input_file[0].split()))
+    arr = list(map(int, input_file[1].split()))
     res = scarecrow_sort(n, k, arr)
 
-with open("../txtf/output.txt", "w", encoding= "UTF-8") as f:
     if res:
-        f.write("ДА")
+        write_output(3, "ДА")
     else:
-        f.write("НЕТ")
-"""
+        write_output(3, "НЕТ")
 
-end = time.perf_counter()
-
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
+if __name__ == '__main__':
+    decorate(task = 3, task_name= 'scarecrow_sort')
