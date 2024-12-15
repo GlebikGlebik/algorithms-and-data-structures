@@ -1,21 +1,10 @@
-import time
-import tracemalloc
 import math
+import sys
+import os
 
-tracemalloc.start()
+from lab3.utils import read_input, write_output, decorate
 
-"""
-with open ("../txtf/input.txt", "w") as f:
-    n_input, k_input = map(str, input().split())
-    f.write(n_input + ' ' + k_input)
-    f.write("\n")
-    for i in range(int(n_input)):
-        array_input = input().split()
-        f.write(" ".join(array_input))
-        f.write("\n")
-"""
-
-start = time.perf_counter()
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 def nearest_points_to_the_origin(arr_of_points, n, k):
     closest_points = []
@@ -30,25 +19,19 @@ def nearest_points_to_the_origin(arr_of_points, n, k):
         del arr_of_points[point]
     return closest_points
 
-"""
-with open("../txtf/input.txt", "r") as f:
-    n, k = map(int, f.readline(3).split())
+
+def main():
+    input_file = read_input(8)
+    n, k = map(int, input_file[0].split())
     arr_of_points = []
-    for i in range(n + 1):
-        point = list(map(int, f.readline().split()))
+    for i in input_file[1:]:
+        point = list(map(int, i.split()))
         arr_of_points.append(point)
-    del arr_of_points[0]
     res = nearest_points_to_the_origin(arr_of_points, n, k)
+    res_string = ''
+    for i in res:
+        res_string += "," + str(i)
+    write_output(8, 'closest points to the origin:', res_string[1:])
 
-with open("../txtf/output.txt", "w") as f:
-    f.write('closest points to the origin:')
-    f.write('\n')
-    f.write(str(res))
-"""
-
-end = time.perf_counter()
-
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
+if __name__ == '__main__':
+    decorate(task = 8, task_name= 'nearest_points_to_the_origin')
