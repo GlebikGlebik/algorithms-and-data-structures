@@ -1,22 +1,9 @@
-import time
-import tracemalloc
+import sys
+import os
 
-tracemalloc.start()
+from lab2.utils import read_input, write_output, decorate
 
-"""
-with open ("../txtf/input.txt", "w") as f:
-    n = input()
-    arr = input().split()
-    m = input()
-    brr = input().split()
-    f.write(n)
-    f.write("\n")
-    f.write(" ".join(arr))
-    f.write("\n")
-    f.write(m)
-    f.write("\n")
-    f.write(" ".join(brr))
-"""
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 def merge_sort(arr):
     if len(arr) <= 1:
@@ -61,13 +48,12 @@ def binary_search(arr_dict_sorted, n, b):
         res = binary_search(dict(list(arr_dict_sorted.items())[mid + 1:]), len(dict(list(arr_dict_sorted.items())[mid + 1:])), b)
     return res
 
-with open("../txtf/input.txt", "r") as f:
-    n = int(f.readline())
-    a1 = f.readline().split()
-    arr = [int(x) for x in a1]
-    m = int(f.readline())
-    b1 = f.readline().split()
-    brr = [int(x) for x in b1]
+def main():
+    input_file = read_input(4)
+    n = int(input_file[0])
+    arr = list(map(int, input_file[1].split()))
+    m = int(input_file[2])
+    brr = list(map(int,input_file[3].split()))
     arr_for_dict = []
     for i in range(len(arr)):
         arr_for_dict.append([i, arr[i]])
@@ -78,7 +64,8 @@ with open("../txtf/input.txt", "r") as f:
         res.append(binary_search(arr_dict_sorted, n, b))
         if res[-1] == None:
             res[-1] = -1
-
-with open("../txtf/output.txt", "w") as f:
     res = [str(i) for i in res]
-    f.write(" ".join(res))
+    write_output(4, " ".join(res))
+
+if __name__ == '__main__':
+    decorate(task = 4, task_name= 'binary_search')
