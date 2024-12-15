@@ -1,22 +1,10 @@
+import sys
+import os
 from math import *
-import time
-import tracemalloc
 
-tracemalloc.start()
+from lab2.utils import read_input, write_output, decorate
 
-"""
-with open ("../txtf/input.txt", "w") as f:
-    n = input()
-    a = input().split()
-    b = input().split()
-    f.write(n)
-    f.write("\n")
-    f.write(" ".join(a))
-    f.write("\n")
-    f.write(" ".join(b))
-"""
-
-start = time.perf_counter()
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 def strassen_multiplication(a, b, n):
     """
@@ -90,11 +78,11 @@ def closest_power_of_two(n):
         return 1
     return 2 ** ceil(log2(n))
 
-"""
-with open("../txtf/input.txt", "r") as f:
-    n = int(f.readline())
-    a_input = list(map(int, f.readline().split()))
-    b_input = list(map(int, f.readline().split()))
+def main():
+    input_file = read_input(9)
+    n = int(input_file[0])
+    a_input = list(map(int, input_file[1].split()))
+    b_input = list(map(int, input_file[2].split()))
 
     a = matrix_maker(list(map(int, a_input)), n)
     b = matrix_maker(list(map(int, b_input)), n)
@@ -108,16 +96,13 @@ with open("../txtf/input.txt", "r") as f:
 
     result = [row[:n] for row in result[:n]]
 
-with open("../txtf/output.txt", "w") as f:
+    out = []
+
     for row in result:
         row = [str(x) for x in row]
-        f.write(" ".join(row))
-        f.write("\n")
-"""
+        out.append(" ".join(row))
 
-end = time.perf_counter()
+    write_output(9, *out)
 
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
+if __name__ == '__main__':
+    decorate(task = 9, task_name= 'Strassens_method_for_matrix_multiplication')
