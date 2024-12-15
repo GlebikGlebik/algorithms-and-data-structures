@@ -1,18 +1,10 @@
-import time
-import tracemalloc
+import sys
+import os
 
-tracemalloc.start()
+from lab1.task1.src.task1 import input_file
+from lab2.utils import read_input, write_output, decorate
 
-"""
-with open("../txtf/input.txt", "w") as f:
-    n = input()
-    a = input().split()
-    f.write(n)
-    f.write("\n")
-    f.write(" ".join(a))
-"""
-
-start = time.perf_counter()
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 
 def merge_and_count(arr, left, mid, right):
@@ -52,19 +44,12 @@ def merge_sort_and_count(arr, left, right):
     return inversions
 
 
-with open("../txtf/input.txt", "r") as f:
-    n = int(f.readline())
-    arr = list(map(int, f.readline().split()))
+def main():
+    input_file = read_input(3)
+    n = int(input_file[0])
+    arr = list(map(int, input_file[1].split()))
+    inversions = merge_sort_and_count(arr, 0, n - 1)
+    write_output(3, str(inversions))
 
-inversions = merge_sort_and_count(arr, 0, n - 1)
-
-with open("../txtf/output.txt", "w") as f:
-    f.write(str(inversions) + "\n")
-
-end = time.perf_counter()
-
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
-
+if __name__ == '__main__':
+    decorate(task = 3, task_name= 'number_of_inversions')
