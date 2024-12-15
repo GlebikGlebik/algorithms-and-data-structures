@@ -1,9 +1,8 @@
-import time
-import tracemalloc
+import sys
+import os
+from lab4.utils import read_input, write_output, decorate
 
-tracemalloc.start()
-
-start = time.perf_counter()
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 class Queue:
     def __init__(self):
@@ -25,25 +24,23 @@ class Queue:
             self.max_queue.pop()  # Удаляем все меньшие элементы из max_queue
         self.max_queue.append(item)
 
-with open("../txtf/input.txt", "r") as f:
-    n = int(f.readline().strip())
+def main():
+    input_file = read_input(7)
+    n = int(input_file[0])
+    arr = list(map(int, input_file[1].split()))
+    m = int(input_file[2])
     q = Queue()
-    with open("../txtf/output.txt", "w") as g:
-        arr = list(map(int, f.readline().split()))
-        m = int(f.readline())
-        for i in range(n):
-            if len(q.queue) < m:
-                q.push(arr[i])
-            else:
-                g.write(str(q.max_queue[0]) + ' ')  # Записываем текущий максимум
-                q.pop()  # Удаляем элемент
-                q.push(arr[i])  # Добавляем новый элемент
-        if len(q.queue) == m:  # Записываем максимум для последней группы
-            g.write(str(q.max_queue[0]) + ' ')
+    res = []
+    for i in range(n):
+        if len(q.queue) < m:
+            q.push(arr[i])
+        else:
+            res.append(str(q.max_queue[0]))  # Записываем текущий максимум
+            q.pop()  # Удаляем элемент
+            q.push(arr[i])  # Добавляем новый элемент
+    if len(q.queue) == m:  # Записываем максимум для последней группы
+        res.append(str(q.max_queue[0]))
+    write_output(7, ' '.join(res))
 
-end = time.perf_counter()
-
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
+if __name__ == "__main__":
+    decorate(task=7, task_name="max_in_moving_sequence")
