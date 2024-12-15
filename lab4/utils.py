@@ -21,7 +21,7 @@ def write_output(task, *args):
     Принимает переменное количество аргументов и записывает каждый на новой строке.
     """
     base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), f'task{task}', 'txtf', 'output.txt'))
-    with open(base_path, 'w') as f:
+    with open(base_path, 'w', encoding='UTF-8') as f:
         for arg in args:
             print(arg, file=f)
 

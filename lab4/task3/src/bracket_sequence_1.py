@@ -33,12 +33,12 @@ class Stack:
 
 def main():
     stc = Stack()
-    with open("../txtf/input.txt", "r") as f:
-        n = int(f.readline())
-        with open("../txtf/output.txt", "w", encoding= 'UTF-8') as g:
-            for i in range(n):
-               s = f.readline().strip()
-               g.write(stc.right_pos(s) + '\n')
+    input_file = read_input(3)
+    answers = []
+    for i in input_file[1:]:
+       answers.append(stc.right_pos(i))
+
+    write_output(3, *answers)
 
 if __name__ == '__main__':
     decorate(task=3, task_name='bracket_sequence_1')
