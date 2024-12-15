@@ -19,17 +19,17 @@ class Queue:
 
 
 def main():
-    with open("../txtf/input.txt", "r") as f:
-        n = int(f.readline())
-        q = Queue()
-        with open("../txtf/output.txt", "w") as g:
-            for i in range(n):
-                arr = f.readline().split()
-                if arr[0] == '+':
-                    q.push(arr[1])
-                elif arr[0] == '-':
-                    g.write(str(q.pop()) + "\n")
-
+    input_file = read_input(2)
+    n = int(input_file[0])
+    pops = []
+    q = Queue()
+    for i in input_file:
+        arr = i.split()
+        if arr[0] == '+':
+            q.push(arr[1])
+        elif arr[0] == '-':
+            pops.append(str(q.pop()))
+    write_output(2, *pops)
 
 if __name__ == '__main__':
     decorate(task=2, task_name='queue')
