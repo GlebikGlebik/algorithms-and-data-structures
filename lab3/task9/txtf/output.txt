@@ -1,4 +1,1 @@
-closest points:
-(0, 0),(3, 4)
-distance between points: 
 5.0

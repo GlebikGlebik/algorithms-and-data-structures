@@ -1,21 +1,10 @@
-import time
-import tracemalloc
+import sys
+import os
 import math
 
-tracemalloc.start()
+from lab3.utils import read_input, write_output, decorate
 
-"""
-with open ("../txtf/input.txt", "w") as f:
-    n_input = input()
-    f.write(n_input)
-    f.write("\n")
-    for i in range(int(n_input)):
-        array_input = input().split()
-        f.write(" ".join(array_input))
-        f.write("\n")
-"""
-
-start = time.perf_counter()
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 def nearest_point(arr_of_points, n):
     min_dist = 10**9
@@ -30,30 +19,21 @@ def nearest_point(arr_of_points, n):
     indexes = (index1, index2)
     return indexes, min_dist
 
-"""
-with open("../txtf/input.txt", "r") as f:
-    n = int(f.readline())
+
+def main():
+    input_file = read_input(9)
+    n = int(input_file[0])
     arr_of_points = {}
-    for i in range(n):
-        point = tuple(map(int, f.readline().split()))
-        arr_of_points[i] = point
+    key = 0
+    for i in input_file[1:]:
+        point = tuple(map(int, i.split()))
+        arr_of_points[key] = point
+        key += 1
     res, min_dist = nearest_point(arr_of_points, n)
 
-with open("../txtf/output.txt", "w") as f:
     point1 = str(arr_of_points[res[0]])
     point2 = str(arr_of_points[res[1]])
-    f.write('closest points:')
-    f.write('\n')
-    f.write(point1 + ',' + point2)
-    f.write('\n')
-    f.write('distance between points: ')
-    f.write('\n')
-    f.write(str(min_dist))
-"""
+    write_output(9, str(min_dist))
 
-end = time.perf_counter()
-
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
+if __name__ == '__main__':
+    decorate(task = 9, task_name= 'nearest_points')
