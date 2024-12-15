@@ -1,9 +1,8 @@
-import time
-import tracemalloc
+import sys
+import os
+from lab4.utils import read_input, write_output, decorate
 
-tracemalloc.start()
-
-start = time.perf_counter()
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 class Stack:
    def __init__(self):
@@ -29,22 +28,21 @@ class Stack:
            self.max = item
            self.stack_max.append(item)
 
-with open("../txtf/input.txt", "r") as f:
-    n = int(f.readline())
+
+def main():
+    input_file = read_input(5)
+    n = int(input_file[0])
     stc = Stack()
-    with open("../txtf/output.txt", "w") as g:
-        for i in range(n):
-           d = f.readline().split()
-           if d[0] == 'push':
-               stc.push(int(d[1]))
-           elif d[0] == 'pop':
-               stc.pop()
-           elif d[0] == 'max':
-               g.write(str(stc.max) + "\n")
+    res = []
+    for i in input_file[1:]:
+       d = i.split()
+       if d[0] == 'push':
+           stc.push(int(d[1]))
+       elif d[0] == 'pop':
+           stc.pop()
+       elif d[0] == 'max':
+           res.append(str(stc.max))
+    write_output(5, *res)
 
-end = time.perf_counter()
-
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
+if __name__ == "__main__":
+    decorate(task=5, task_name="stack_with_max")
