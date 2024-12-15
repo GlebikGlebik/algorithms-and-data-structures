@@ -1,19 +1,10 @@
 from random import *
-import time
-import tracemalloc
+import sys
+import os
 
-tracemalloc.start()
+from lab3.utils import read_input, write_output, decorate
 
-"""
-with open ("../txtf/input.txt", "w") as f:
-    n_input = input()
-    array_input = input().split()
-    f.write(n_input)
-    f.write("\n")
-    f.write(" ".join(array_input))
-"""
-
-start = time.perf_counter()
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 def quick_sort(array):
     if len(array) <= 1:
@@ -27,22 +18,13 @@ def quick_sort(array):
 
     return quick_sort(left) + middle + quick_sort(right)
 
-"""
-with open("../txtf/input.txt", "r") as f:
-    n = int(f.readline())
-    array = f.readline().split()
-    array = [int(x) for x in array]
+def main():
+    input_file = read_input(1)
+    array = list(map(int,input_file[1].split()))
     res = quick_sort(array)
-
-with open("../txtf/output.txt", "w") as f:
     res = [str(x) for x in res]
-    s = " ".join(res)
-    f.write(s)
-"""
+    write_output(1," ".join(res))
 
-end = time.perf_counter()
+if __name__ == '__main__':
+    decorate(task = 1, task_name= 'random_quick_sort')
 
-print("Время работы: ", end - start, "секунд")
-current, peak = tracemalloc.get_traced_memory()
-print(f"Пиковая память: {peak / 2**20:.2f} MB")
-tracemalloc.stop()
