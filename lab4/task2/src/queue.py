@@ -7,6 +7,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')
 class Queue:
     def __init__(self):
         self.queue = []
+        self.input_file = read_input(2)
+        self.n = int(self.input_file[0])
 
     def pop(self):
         if len(self.queue) == 0:
@@ -18,18 +20,20 @@ class Queue:
         self.queue.append(item)
 
 
+    def result(self):
+        pops = []
+        for i in self.input_file:
+            arr = i.split()
+            if arr[0] == '+':
+                self.push(arr[1])
+            elif arr[0] == '-':
+                pops.append(str(self.pop()))
+        return pops
+
 def main():
-    input_file = read_input(2)
-    n = int(input_file[0])
-    pops = []
     q = Queue()
-    for i in input_file:
-        arr = i.split()
-        if arr[0] == '+':
-            q.push(arr[1])
-        elif arr[0] == '-':
-            pops.append(str(q.pop()))
-    write_output(2, *pops)
+    res = q.result()
+    write_output(2, *res)
 
 if __name__ == '__main__':
     decorate(task=2, task_name='queue')
