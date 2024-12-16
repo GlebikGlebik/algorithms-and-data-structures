@@ -9,7 +9,7 @@ class TestQueue(unittest.TestCase):
 
     def test_case_1(self):
         # given
-        self.queue.input_file = read_input(1)
+        self.queue.input_file = read_input(2)
         expected_result = ['1', '10']
 
         # when
