@@ -1,42 +1,100 @@
 import unittest
+from lab4.task5.src.stack_with_max import *
+from lab4.utils import read_input
 
 
 class TestStack(unittest.TestCase):
     def setUp(self):
         self.stack = Stack()
 
-    def test_input(self):
-        self.path = "../txtf/test_input.txt"
+    def test_case_input(self):
+        # given
+        self.stack.input_file = read_input(5)
+        expected_result = ['2', '2'] # Пример ожидаемой высоты дерева
 
-    def test_stack(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("5\npush 2\npush 1\nmax\npop\nmax")
-        self.assertTrue('2\n2')
+        # when
+        result = self.stack.result()
 
-    def test_stack_case_1(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("5\npush 1\npush 2\nmax\npop\nmax")
-        self.assertTrue('2\n1')
+        # then
+        self.assertEqual(expected_result, result)
 
-    def test_stack_case_2(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("3\npush 1\npush 7\npop")
-        self.assertTrue(True)
+    def test_case_1(self):
+        # given
+        self.stack.input_file = ["3", "push 1", "push 7", "pop"]
+        expected_result = []
 
-    def test_stack_case_3(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("4\npush 5\npush 3\npush 8\nmax\npop\nmax")
-        self.assertTrue('8\n5')
+        # when
+        result = self.stack.result()
 
-    def test_stack_case_4(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("6\npush 4\npush 6\npush 2\nmax\npop\nmax")
-        self.assertTrue('6\n4')
+        # then
+        self.assertEqual(expected_result, result)
 
-    def test_stack_case_5(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("7\npush 10\npush 20\npush 15\nmax\npop\nmax\npop")
-        self.assertTrue('20\n15')
+    def test_case_2(self):
+        # given
+        self.stack.input_file = ["5", "push 3", "push 5", "max", "pop", "max"]
+        expected_result = ["5", "3"]  # Ожидаемые результаты для max после операций
 
-if __name__ == "__main__":
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_3(self):
+        # given
+        self.stack.input_file = ["4", "push 1", "push 7", "pop", "max"]
+        expected_result = ["1"]
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_4(self):
+        # given
+        self.stack.input_file = ["6", "push 10", "push 20", "push 5", "max", "pop", "max"]
+        expected_result = ["20", "20"]  # Ожидаемые результаты для max после операций
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_5(self):
+        # given
+        self.stack.input_file = ["5", "push 15", "push 25", "push 10", "pop", "max"]
+        expected_result = ["25"]  # Ожидаемое значение максимума после операций
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_6(self):
+        # given
+        self.stack.input_file = ["4", "push 5", "push 3", "max", "pop"]
+        expected_result = ["5"]  # Ожидаемое значение максимума перед удалением
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_7(self):
+        # given
+        self.stack.input_file = ["7", "push 1", "push 2", "push 3", "max", "pop", "max"]
+        expected_result = ["3", "2"]  # Ожидаемые результаты для max после операций
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+
+if __name__ == '__main__':
     unittest.main()
