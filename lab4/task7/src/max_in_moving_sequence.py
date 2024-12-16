@@ -6,6 +6,10 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')
 
 class Queue:
     def __init__(self):
+        self.input_file = read_input(7)
+        self.n = int(self.input_file[0])
+        self.arr = list(map(int, self.input_file[1].split()))
+        self.m = int(self.input_file[2])
         self.queue = []
         self.max_queue = []  # Стек для хранения максимумов
 
@@ -24,22 +28,22 @@ class Queue:
             self.max_queue.pop()  # Удаляем все меньшие элементы из max_queue
         self.max_queue.append(item)
 
+    def result(self):
+        res = []
+        for i in range(self.n):
+            if len(self.queue) < self.m:
+                self.push(self.arr[i])
+            else:
+                res.append(str(self.max_queue[0]))  # Записываем текущий максимум
+                self.pop()  # Удаляем элемент
+                self.push(self.arr[i])  # Добавляем новый элемент
+        if len(self.queue) == self.m:  # Записываем максимум для последней группы
+            res.append(str(self.max_queue[0]))
+        return res
+
 def main():
-    input_file = read_input(7)
-    n = int(input_file[0])
-    arr = list(map(int, input_file[1].split()))
-    m = int(input_file[2])
     q = Queue()
-    res = []
-    for i in range(n):
-        if len(q.queue) < m:
-            q.push(arr[i])
-        else:
-            res.append(str(q.max_queue[0]))  # Записываем текущий максимум
-            q.pop()  # Удаляем элемент
-            q.push(arr[i])  # Добавляем новый элемент
-    if len(q.queue) == m:  # Записываем максимум для последней группы
-        res.append(str(q.max_queue[0]))
+    res = q.result()
     write_output(7, ' '.join(res))
 
 if __name__ == "__main__":

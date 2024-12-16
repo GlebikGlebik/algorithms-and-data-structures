@@ -1,31 +1,113 @@
 import unittest
+from lab4.task7.src.max_in_moving_sequence import *
+from lab4.utils import read_input
 
 
-class TestQueue(unittest.TestCase):
-    def test_queue_case_1(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("5\n1 3 5 7 9\n3\n")
-        self.assertTrue('7 9 ')
+class TestStack(unittest.TestCase):
+    def setUp(self):
+        self.queue = Queue()
 
-    def test_queue_case_2(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("6\n10 20 30 40 50 60\n4\n")
-        self.assertTrue('40 50 60 ')
+    def test_case_input(self):
+        # given
+        self.queue.input_file = read_input(7)
+        expected_result = ['7', '7', '5', '6', '6']
 
-    def test_queue_case_3(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("7\n5 3 8 6 2 7 4\n5\n")
-        self.assertTrue('8 6 7 ')
+        # when
+        result = self.queue.result()
 
-    def test_queue_case_4(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("4\n1 2 3 4\n2\n")
-        self.assertTrue('3 4 ')
+        # then
+        self.assertEqual(expected_result, result)
 
-    def test_queue_case_5(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("5\n9 8 7 6 5\n1\n")
-        self.assertTrue('9 ')
+    def test_case_0(self):
+        # given
+        self.queue.n = 5
+        self.queue.arr = [1, 3, 5, 7, 9]
+        self.queue.m = 3
+        expected_result = ['5', '7', '9']
 
-if __name__ == "__main__":
+        # when
+        result = self.queue.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_1(self):
+        # given
+        self.queue.n = 6
+        self.queue.arr = [2, 4, 1, 3, 5, 6]
+        self.queue.m = 4
+        expected_result = ['4', '5', '6']  # Максимумы для каждой подгруппы
+
+        # when
+        result = self.queue.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_2(self):
+        # given
+        self.queue.n = 5
+        self.queue.arr = [10, 20, 30, 40, 50]
+        self.queue.m = 2
+        expected_result = ['20', '30', '40', '50']  # Максимумы для каждой подгруппы
+
+        # when
+        result = self.queue.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_3(self):
+        # given
+        self.queue.n = 4
+        self.queue.arr = [5, 3, 8, 1]
+        self.queue.m = 3
+        expected_result = ['8', '8']  # Максимумы для каждой подгруппы
+
+        # when
+        result = self.queue.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_4(self):
+        # given
+        self.queue.n = 7
+        self.queue.arr = [1, 2, 3, 4, 5, 6, 7]
+        self.queue.m = 5
+        expected_result = ['5', '6', '7']  # Максимумы для каждой подгруппы
+
+        # when
+        result = self.queue.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_5(self):
+        # given
+        self.queue.n = 6
+        self.queue.arr = [7, 3, 5, 8, 1, 2]
+        self.queue.m = 4
+        expected_result = ['8', '8', '8']  # Максимумы для каждой подгруппы
+
+        # when
+        result = self.queue.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_6(self):
+        # given
+        self.queue.n = 5
+        self.queue.arr = [1, 3, 5, 7, 9]
+        self.queue.m = 3
+        expected_result = ['5', '7', '9']
+
+        # when
+        result = self.queue.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+if __name__ == '__main__':
     unittest.main()
