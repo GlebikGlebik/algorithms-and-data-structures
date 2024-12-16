@@ -1,51 +1,78 @@
 import unittest
+from lab4.task1.src.stack import *
+from lab4.utils import read_input
 
 
 class TestStack(unittest.TestCase):
     def setUp(self):
         self.stack = Stack()
 
-    def test_input(self):
-        self.path = "../txtf/test_input.txt"
+    def test_case_1(self):
+        # given
+        self.stack.input_file = read_input(1)
+        expected_result = ['10', '1234'] # Пример ожидаемой высоты дерева
 
-    def test_push_and_pop(self):
-        # Проверка добавления и удаления элементов
-        self.stack.push('1')
-        self.assertEqual(self.stack.pop(), '1')
-        self.stack.push('2')
-        self.stack.push('3')
-        self.assertEqual(self.stack.pop(), '3')
-        self.assertEqual(self.stack.pop(), '2')
+        # when
+        result = self.stack.result()
 
-    def test_stack(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("6\n+ 1\n+ 10\n-\n+ 2\n+ 1234\n-\n")
-        self.assertTrue('10\n1234\n')
+        # then
+        self.assertEqual(expected_result, result)
 
-    def test_stack_case_1(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("5\n+ 3\n+ 5\n-\n+ 7\n-\n")
-        self.assertTrue('7\n5\n')
+    def test_case_2(self):
+        # given
+        self.stack.array = ["3", "+ 10", "+ 1234", "-"]
+        expected_result = ['1234']
 
-    def test_stack_case_2(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("4\n+ 8\n-\n+ 12\n-\n")
-        self.assertTrue('12\n8\n')
+        # when
+        result = self.stack.result()
 
-    def test_stack_case_3(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("3\n+ 15\n+ 20\n-\n")
-        self.assertTrue('20\n')
+        # then
+        self.assertEqual(expected_result, result)
 
-    def test_stack_case_4(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("7\n+ 100\n+ 200\n-\n+ 300\n-\n+ 400\n-\n")
-        self.assertTrue('400\n300\n200\n')
+    def test_case_3(self):
+        # given
+        self.stack.array = ["3", "+ 5", "+ 10", "-"]
+        expected_result = ['10']  # Проверка на правильность извлечения последнего элемента
 
-    def test_stack_case_5(self):
-        with open("../txtf/test_input.txt", "w") as f:
-            f.write("2\n+ 999\n-\n")
-        self.assertTrue('999\n')
+        # when
+        result = self.stack.result()
 
-if __name__ == "__main__":
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_4(self):
+        # given
+        self.stack.array = ["5", "+ 100", "+ 200", "+ 300", "-", "-"]
+        expected_result = ['300', '200']  # Проверка на извлечение двух последних элементов
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_5(self):
+        # given
+        self.stack.array = ["2", "+ 7", "-"]
+        expected_result = ['7']  # Проверка на извлечение единственного элемента
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+    def test_case_6(self):
+        #empty input
+        # given
+        self.stack.array = []
+        expected_result = []  # Проверка на извлечение единственного элемента
+
+        # when
+        result = self.stack.result()
+
+        # then
+        self.assertEqual(expected_result, result)
+
+if __name__ == '__main__':
     unittest.main()
