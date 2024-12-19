@@ -23,6 +23,7 @@ def main():
     array = list(map(int, input_file[0].split(',')))
     res = h_index(array)
     write_output(5, str(res))
+    print(str(res))
 
 if __name__ == '__main__':
     decorate(task=5, task_name='h_index')

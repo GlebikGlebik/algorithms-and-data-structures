@@ -32,6 +32,7 @@ def main():
     res, min_dist = nearest_point(arr_of_points, n)
 
     write_output(9, str(min_dist))
+    print(str(min_dist))
 
 if __name__ == '__main__':
     decorate(task = 9, task_name= 'nearest_points')

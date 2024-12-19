@@ -32,6 +32,7 @@ def main():
     for i in res:
         res_string += "," + str(i)
     write_output(8, 'closest points to the origin:', res_string[1:])
+    print(res_string[1:])
 
 if __name__ == '__main__':
     decorate(task = 8, task_name= 'nearest_points_to_the_origin')

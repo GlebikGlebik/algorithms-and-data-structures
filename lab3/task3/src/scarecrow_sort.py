@@ -35,8 +35,10 @@ def main():
 
     if res:
         write_output(3, "ДА")
+        print('ДА')
     else:
         write_output(3, "НЕТ")
+        print('НЕТ')
 
 if __name__ == '__main__':
     decorate(task = 3, task_name= 'scarecrow_sort')

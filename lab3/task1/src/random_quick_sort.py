@@ -24,6 +24,7 @@ def main():
     res = quick_sort(array)
     res = [str(x) for x in res]
     write_output(1," ".join(res))
+    print(" ".join(res))
 
 if __name__ == '__main__':
     decorate(task = 1, task_name= 'random_quick_sort')
