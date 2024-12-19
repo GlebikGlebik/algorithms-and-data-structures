@@ -71,6 +71,7 @@ def main():
     res = result(arr,n,brr)
     res = [str(i) for i in res]
     write_output(4, " ".join(res))
+    print(" ".join(res))
 
 if __name__ == '__main__':
     decorate(task = 4, task_name= 'binary_search')

@@ -1,7 +1,6 @@
 import sys
 import os
 
-from lab1.task1.src.task1 import input_file
 from lab2.utils import read_input, write_output, decorate
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
@@ -50,6 +49,7 @@ def main():
     arr = list(map(int, input_file[1].split()))
     inversions = merge_sort_and_count(arr, 0, n - 1)
     write_output(3, str(inversions))
+    print(str(inversions))
 
 if __name__ == '__main__':
     decorate(task = 3, task_name= 'number_of_inversions')

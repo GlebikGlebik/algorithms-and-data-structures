@@ -58,6 +58,7 @@ def main():
     res = [str(x) for x in sorted_arr.values()]
     msp.indexes.append(" ".join(res))
     write_output(2, *msp.indexes)
+    [print(i) for i in msp.indexes]
 
 if __name__ == '__main__':
     decorate(task = 2, task_name= 'merge_sort_plus')

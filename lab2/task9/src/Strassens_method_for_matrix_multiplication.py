@@ -108,6 +108,7 @@ def main():
     out = result(input_file, n)
 
     write_output(9, *out)
+    [print(i) for i in out]
 
 if __name__ == '__main__':
     decorate(task = 9, task_name= 'Strassens_method_for_matrix_multiplication')
