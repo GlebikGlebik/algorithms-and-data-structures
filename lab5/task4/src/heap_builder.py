@@ -45,6 +45,8 @@ def main():
     swaps = build_min_heap(array)
     res = result(swaps)
     write_output(4, *res)
+    [print(i) for i in res]
+    print()
 
 if __name__ == "__main__":
     decorate(task=4, task_name='heap_builder')

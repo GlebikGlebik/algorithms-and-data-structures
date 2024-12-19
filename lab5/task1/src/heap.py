@@ -23,6 +23,8 @@ def main():
     n = int(arr_input[0])
     res = heap(arr, n)
     write_output(1, res)
+    print(res)
+    print()
 
 if __name__ == '__main__':
     decorate(task = 1, task_name= 'heap')

@@ -40,6 +40,8 @@ def main():
     npp = NetworkPacketsProcessor()
     res = npp.network_packets(npp.buffer_size, npp.packets, npp.n)
     write_output(3, *res)
+    [print(i) for i in res]
+    print()
 
 
 if __name__ == "__main__":

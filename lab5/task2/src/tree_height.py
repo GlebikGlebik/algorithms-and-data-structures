@@ -44,6 +44,8 @@ def main():
     tree = TreeHeightCalculator()
     res = tree.tree_height(tree.n, tree.parents)
     write_output(2, res)
+    print(res)
+    print()
 
 
 if __name__ == '__main__':
