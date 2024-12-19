@@ -78,9 +78,7 @@ def closest_power_of_two(n):
         return 1
     return 2 ** ceil(log2(n))
 
-def main():
-    input_file = read_input(9)
-    n = int(input_file[0])
+def result(input_file, n):
     a_input = list(map(int, input_file[1].split()))
     b_input = list(map(int, input_file[2].split()))
 
@@ -101,6 +99,13 @@ def main():
     for row in result:
         row = [str(x) for x in row]
         out.append(" ".join(row))
+
+    return out
+
+def main():
+    input_file = read_input(9)
+    n = int(input_file[0])
+    out = result(input_file, n)
 
     write_output(9, *out)
 
