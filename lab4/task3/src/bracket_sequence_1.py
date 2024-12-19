@@ -42,6 +42,7 @@ def main():
     stc = Stack()
     res = stc.result()
     write_output(3, *res)
+    [print(i) for i in res]
 
 if __name__ == '__main__':
     decorate(task=3, task_name='bracket_sequence_1')

@@ -46,6 +46,7 @@ def main():
     stc = Stack()
     res = stc.result()
     write_output(5, *res)
+    [print(i) for i in res]
 
 if __name__ == "__main__":
     decorate(task=5, task_name="stack_with_max")

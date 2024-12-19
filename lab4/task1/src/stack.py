@@ -33,6 +33,7 @@ def main():
     stc = Stack()
     pops = stc.result()
     write_output(1, *pops)
+    [print(i) for i in pops]
     return pops
 
 if __name__ == "__main__":

@@ -34,6 +34,7 @@ def main():
     q = Queue()
     res = q.result()
     write_output(2, *res)
+    [print(i) for i in res]
 
 if __name__ == '__main__':
     decorate(task=2, task_name='queue')

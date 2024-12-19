@@ -45,6 +45,7 @@ def main():
     q = Queue()
     res = q.result()
     write_output(7, ' '.join(res))
+    print(*res)
 
 if __name__ == "__main__":
     decorate(task=7, task_name="max_in_moving_sequence")
