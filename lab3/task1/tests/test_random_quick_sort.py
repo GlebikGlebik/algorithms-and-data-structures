@@ -1,5 +1,4 @@
 import unittest
-from array import array
 
 from lab3.task1.src.random_quick_sort import *
 from lab3.utils import read_input
