@@ -48,12 +48,7 @@ def binary_search(arr_dict_sorted, n, b):
         res = binary_search(dict(list(arr_dict_sorted.items())[mid + 1:]), len(dict(list(arr_dict_sorted.items())[mid + 1:])), b)
     return res
 
-def main():
-    input_file = read_input(4)
-    n = int(input_file[0])
-    arr = list(map(int, input_file[1].split()))
-    m = int(input_file[2])
-    brr = list(map(int,input_file[3].split()))
+def result(arr, n, brr):
     arr_for_dict = []
     for i in range(len(arr)):
         arr_for_dict.append([i, arr[i]])
@@ -64,6 +59,16 @@ def main():
         res.append(binary_search(arr_dict_sorted, n, b))
         if res[-1] == None:
             res[-1] = -1
+    return res
+
+
+def main():
+    input_file = read_input(4)
+    n = int(input_file[0])
+    arr = list(map(int, input_file[1].split()))
+    m = int(input_file[2])
+    brr = list(map(int,input_file[3].split()))
+    res = result(arr,n,brr)
     res = [str(i) for i in res]
     write_output(4, " ".join(res))
 
