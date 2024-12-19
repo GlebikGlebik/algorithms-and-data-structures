@@ -1,69 +1,118 @@
 import unittest
 
+from lab3.task3.src.scarecrow_sort import *
+from lab3.utils import read_input
+
 
 class TestScarecrowSort(unittest.TestCase):
 
-    def test_single_element_array(self):
-        """Тест на массиве с одним элементом"""
-        n = 1
-        k = 1
-        arr = [42]
-        self.assertTrue(scarecrow_sort(n, k, arr))
+    def test_case_input(self):
+        # given
+        input_file = read_input(3)
+        n, k = list(map(int, input_file[0].split()))
+        array = list(map(int, input_file[1].split()))
+        expected_result = True
 
-    def test_two_elements_sorted(self):
-        """Тест на массиве из двух отсортированных элементов"""
-        n = 2
-        k = 1
-        arr = [1, 2]
-        self.assertTrue(scarecrow_sort(n, k, arr))
+        # when
+        res = scarecrow_sort(n, k, array)
 
+        # then
+        self.assertEqual(expected_result, res)
 
+    def test_case_0(self):
+        # given
+        n, k = [3,2]
+        array = [2,1,3]
+        expected_result = False
 
-    def test_large_array(self):
-        """Тест на большом массиве с последовательными числами"""
-        n = 1000
-        k = 10
-        arr = list(range(1, 1001))  # От 1 до 1000
-        self.assertTrue(scarecrow_sort(n, k, arr))
+        # when
+        res = scarecrow_sort(n, k, array)
 
-    def test_large_array_reverse(self):
-        """Тест на большом массиве в обратном порядке"""
-        n = 1000
-        k = 10
-        arr = list(range(1000, 0, -1))  # От 1000 до 1
-        self.assertFalse(scarecrow_sort(n, k, arr))
+        # then
+        self.assertEqual(expected_result, res)
 
-    def test_large_k_with_sorted_array(self):
-        """Тест на массиве с большим k и отсортированным массивом"""
-        n = 5
-        k = 100
-        arr = [1, 2, 3, 4, 5]
-        self.assertTrue(scarecrow_sort(n, k, arr))
+    def test_case_sorted_array(self):
+        # given
+        n, k = [5, 2]
+        array = [1, 2, 3, 4, 5]
+        expected_result = True  # Массив уже отсортирован
 
-    def test_large_k_with_unsorted_array(self):
-        """Тест на массиве с большим k и неотсортированным массивом"""
-        n = 5
-        k = 100
-        arr = [5, 4, 3, 2, 1]
-        self.assertFalse(scarecrow_sort(n, k, arr))
+        # when
+        res = scarecrow_sort(n, k, array)
 
-    def test_k_greater_than_n(self):
-        """Тест на случае, когда k значительно больше n"""
-        n = 3
-        k = 10
-        arr = [3, 2, 1]
-        self.assertFalse(scarecrow_sort(n, k, arr))
+        # then
+        self.assertEqual(expected_result, res)
 
+    def test_case_reverse_sorted_array(self):
+        # given
+        n, k = [5, 2]
+        array = [5, 4, 3, 2, 1]
+        expected_result = True  # Не может быть отсортирован в соответствии с k
 
-    def test_array_with_zero(self):
-        """Тест на массиве, содержащем ноль"""
-        n = 5
-        k = 2
-        arr = [0, 1, 2, 3, 4]
-        self.assertTrue(scarecrow_sort(n, k, arr))
+        # when
+        res = scarecrow_sort(n, k, array)
 
+        # then
+        self.assertEqual(expected_result, res)
 
+    def test_case_with_duplicates(self):
+        # given
+        n, k = [6, 3]
+        array = [3, 2, 3, 1, 2, 3]
+        expected_result = False  # Массив можно отсортировать
 
+        # when
+        res = scarecrow_sort(n, k, array)
 
+        # then
+        self.assertEqual(expected_result, res)
+
+    def test_case_all_elements_equal(self):
+        # given
+        n, k = [4, 2]
+        array = [1, 1, 1, 1]
+        expected_result = True  # Все элементы одинаковые, считается отсортированным
+
+        # when
+        res = scarecrow_sort(n, k, array)
+
+        # then
+        self.assertEqual(expected_result, res)
+
+    def test_case_negative_numbers(self):
+        # given
+        n, k = [5, 2]
+        array = [-1, -3, -2, -4, 0]
+        expected_result = False # Массив можно отсортировать
+
+        # when
+        res = scarecrow_sort(n, k, array)
+
+        # then
+        self.assertEqual(expected_result, res)
+
+    def test_case_large_k(self):
+        # given
+        n, k = [5, 5]
+        array = [5, 1, 4, 2, 3]
+        expected_result = False  # Можно отсортировать, так как k >= n
+
+        # when
+        res = scarecrow_sort(n, k, array)
+
+        # then
+        self.assertEqual(expected_result, res)
+
+    def test_case_large_array(self):
+        # given
+        n, k = [1000, 10]
+        array = list(range(1000, 0, -1))  # массив от 1000 до 1
+        expected_result = False  # Не может быть отсортирован в соответствии с k
+
+        # when
+        res = scarecrow_sort(n, k, array)
+
+        # then
+        self.assertEqual(expected_result, res)
 if __name__ == '__main__':
     unittest.main()
