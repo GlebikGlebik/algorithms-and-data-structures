@@ -31,8 +31,6 @@ def main():
         key += 1
     res, min_dist = nearest_point(arr_of_points, n)
 
-    point1 = str(arr_of_points[res[0]])
-    point2 = str(arr_of_points[res[1]])
     write_output(9, str(min_dist))
 
 if __name__ == '__main__':
