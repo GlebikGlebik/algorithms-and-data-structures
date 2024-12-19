@@ -45,6 +45,7 @@ class MergeSortPlus:
         self.indexes.append(f'{str(l1)} {str(r1)} {str(sorted_array[0][1])} {str(sorted_array[-1][1])}')
         return dict(sorted_array)
 
+
 def main():
     msp = MergeSortPlus()
     input_file = read_input(2)
