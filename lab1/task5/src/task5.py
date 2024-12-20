@@ -27,6 +27,7 @@ def main():
     a = insertion_sort(n, a)
     res = [str(x) for x in a]
     write_output(5, ' '.join(res))
+    print(' '.join(res))
 
 if __name__ == '__main__':
     decorate(task = 5, task_name= 'task5')

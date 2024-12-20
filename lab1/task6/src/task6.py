@@ -24,6 +24,7 @@ def main():
     a = bubble_sort(n, a)
     res = [str(x) for x in a]
     write_output(6, ' '.join(res))
+    print(' '.join(res))
 
 if __name__ == '__main__':
     decorate(task = 6, task_name= 'task6')

@@ -26,6 +26,8 @@ def main():
     res = swap(n, a)
 
     write_output(8, *res, "No more swaps needed.")
+    [print(i) for i in res]
+    print("No more swaps needed.")
 
 if __name__ == '__main__':
     decorate(task = 8, task_name= 'task8')
