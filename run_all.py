@@ -45,8 +45,6 @@ def run_tests(test_files):
         print('-----------------------------------------------------------------------------------------------------------')
 
 def main():
-    print(files)
-    print(test_files)
     run_tasks(files)
     run_tests(test_files)
 
