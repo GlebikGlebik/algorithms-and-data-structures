@@ -80,4 +80,4 @@ class TestMergeSort(unittest.TestCase):
         self.assertEqual(expected_result, b)
 
 if __name__ == '__main__':
-    decorate(task = 7, task_name= 'task7')
+    unittest.main()
