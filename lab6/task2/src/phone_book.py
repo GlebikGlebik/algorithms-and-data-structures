@@ -43,6 +43,7 @@ def main():
 
     write_output(2, *res)
     [print(i) for i in res]
+    print()
 
 if __name__ == '__main__':
     decorate(task=2, task_name='phone_book')
