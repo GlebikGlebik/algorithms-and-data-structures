@@ -33,6 +33,7 @@ def main():
     res = 'YES' if template(temp, string) else 'NO'
     write_output(7, res)
     print(res)
+    print()
 
 if __name__ == '__main__':
     decorate(task=7, task_name='templates')
