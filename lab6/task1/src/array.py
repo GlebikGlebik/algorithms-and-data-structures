@@ -5,7 +5,7 @@ from lab6.utils import read_input, write_output, decorate
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 
-class CustomSet:
+class Set:
     def __init__(self):
         self.data = {}
 
@@ -23,7 +23,7 @@ class CustomSet:
         return x in self.data
 
 def result(operations):
-    arr = CustomSet()
+    arr = Set()
     results = []
     for operation in operations:
         x = int(operation[1])
@@ -40,7 +40,6 @@ def result(operations):
 
 def main():
     input_file = read_input(1)
-    n = int(input_file[0])
     operations = []
     [operations.append(i.split()) for i in input_file[1:]]
 
@@ -50,4 +49,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    decorate(1, 'array')
