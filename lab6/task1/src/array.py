@@ -46,6 +46,7 @@ def main():
     res = result(operations)
 
     write_output(1, *res)
+    [print(i) for i in res]
 
 
 if __name__ == '__main__':
