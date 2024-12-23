@@ -5,6 +5,7 @@ from lab3.run_lab3 import *
 from lab4.run_lab4 import *
 from lab5.run_lab5 import *
 from lab6.run_lab6 import *
+from lab7.run_lab7 import *
 green = '\033[92m'
 end = '\033[0m'
 files = []
@@ -16,6 +17,7 @@ test_files = []
 [files.append(f'lab4/{i}') for i in files4]
 [files.append(f'lab5/{i}') for i in files5]
 [files.append(f'lab6/{i}') for i in files6]
+[files.append(f'lab7/{i}') for i in files7]
 
 [test_files.append(f'lab1/{i}') for i in test_files1]
 [test_files.append(f'lab2/{i}') for i in test_files2]
@@ -23,6 +25,7 @@ test_files = []
 [test_files.append(f'lab4/{i}') for i in test_files4]
 [test_files.append(f'lab5/{i}') for i in test_files5]
 [test_files.append(f'lab6/{i}') for i in test_files6]
+[test_files.append(f'lab7/{i}') for i in test_files7]
 
 def run_tasks(files):
     print('-----------------------------------------------------------------------------------------------------------')
